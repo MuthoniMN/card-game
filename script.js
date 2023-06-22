@@ -21,7 +21,7 @@ if (!localStorage.getItem('player2')) {
     localStorage.setItem('player2', 0)
 }
 
-document.querySelector('button').addEventListener('click', drawTwo)
+document.querySelector('#play').addEventListener('click', drawTwo)
 
 
 
@@ -77,3 +77,8 @@ function checkWin(a, b) {
         document.getElementById('result').innerText = "It's War"
     }
 }
+
+document.querySelector('#reset').addEventListener('click', () => {
+    localStorage.clear()
+    window.location.reload()
+})
