@@ -70,21 +70,19 @@ function getNumber(val) {
 // check who won
 function checkWin(a, b) {
     if(a > b){
-        document.getElementById('result').innerText = 'Player 1 Wins!!'
         let player1 = Number(localStorage.getItem('player1'))
         player1 += 1
         localStorage.setItem('player1', player1)
+        document.getElementById('player1Score').innerText = localStorage.getItem('player1')
     }else if(b > a){
-        document.getElementById('result').innerText = 'Player 2 Wins!!'
         let player2 = Number(localStorage.getItem('player2'))
         player2 += 1
         localStorage.setItem('player2', player2)
-    }else if(a === b){
-        document.getElementById('result').innerText = "It's War"
+        document.getElementById('player2Score').innerText = localStorage.getItem('player2')
     }
 }
 
-// resets the game
+// reset the game
 document.querySelector('#reset').addEventListener('click', () => {
     localStorage.clear()
     window.location.reload()
