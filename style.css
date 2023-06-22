@@ -1,0 +1,47 @@
+body{
+    background-color:thistle;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 32px 0;
+}
+
+header > div{
+    background: powderblue;
+    padding: 0 45px;
+    border-radius: 24px;
+    box-shadow:  2px 2px 2px 3px rgba(0, 0, 0, 0.301);
+}
+
+header + section{
+    margin: 24px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.card{
+    padding: 24px 0;
+    width: 300px;
+    text-align: center;
+    background: paleturquoise;
+    box-shadow:  2px 2px 2px 2px rgba(0, 0, 0, 0.308);
+}
+
+.card img{
+    display: block;
+    margin: 0 auto;
+}
+
+button{
+    background-color: paleturquoise;
+    border: none;
+    padding: 12px 24px;
+    display: block;
+    margin: 32px auto;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+}
