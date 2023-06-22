@@ -1,3 +1,4 @@
+// getting a deck
 if(!localStorage.getItem('deckId')){   
 
     fetch(`https://www.deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1`)
@@ -13,6 +14,7 @@ if(!localStorage.getItem('deckId')){
     });
 }
 
+// adding scores 
 if (!localStorage.getItem('player1')) {
     localStorage.setItem('player1', 0)
 }
@@ -21,10 +23,14 @@ if (!localStorage.getItem('player2')) {
     localStorage.setItem('player2', 0)
 }
 
+document.getElementById('player1Score').innerText = localStorage.getItem('player1')
+
+document.getElementById('player2Score').innerText = localStorage.getItem('player2')
+
+
 document.querySelector('#play').addEventListener('click', drawTwo)
 
-
-
+// getting two cards for the players 
 function drawTwo(){
     const deck = localStorage.getItem('deckId') 
   const url = `https://www.deckofcardsapi.com/api/deck/${deck}/draw/?count=2`
@@ -40,14 +46,13 @@ function drawTwo(){
 
         checkWin(player1Val, player2Val)
 
-        document.getElementById('player1Score').innerText = localStorage.getItem('player1')
-        document.getElementById('player2Score').innerText = localStorage.getItem('player2')
       })
       .catch(err => {
           console.log(`error ${err}`)
       });
 }
 
+// helper function to make sure all cards have a numeric value
 function getNumber(val) {
     if (val === 'ACE') {
         return 1
@@ -62,6 +67,7 @@ function getNumber(val) {
     }
 }
 
+// check who won
 function checkWin(a, b) {
     if(a > b){
         document.getElementById('result').innerText = 'Player 1 Wins!!'
@@ -78,6 +84,7 @@ function checkWin(a, b) {
     }
 }
 
+// resets the game
 document.querySelector('#reset').addEventListener('click', () => {
     localStorage.clear()
     window.location.reload()
